@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Zeit Messen | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Zeit messen</h1>
+    <p>Zum Messen der Zeit gibt es grundsätzlich zwei Methoden, je nachdem was genau gemessen werden soll:
+    <li class="nodec">
+	  <h2>1. Zeit im Verhältnis zur Programmgeschwindigkeit</h2>
+      <div>
+        <p>Die Zeit wird in Abhänigkeit der gezeichneten Bilder (FPS - Frames per second) gemessen. Läuft das Programm also langsamer z.B. auf einem langsamen Computer, so läuft die Zeit auch langsamer, da sie nicht an die Echtzeit, sondern an die Programmgeschwindigkeit gebunden ist.</p>
+        <p class="hint">Hinweis: Diese Anleitung geht davon aus, dass du das Grund-Programm übernommen und somit eine Variable <code class="inline">FPS</code> mit der angestrebten Anzahl Bilder pro Sekunde gesetzt hast.</p>
+        <p>Um das zu erreichen benötigst du eine Variable in der die Anzahl Frames (Bilder) seit Programmstart gespeichert werden. Dazu gehst du wie folgt vor:
+	      <ol>
+		    <li>Definiere die Variable ausserhalb der Haupt-Schleife.</li>
+		    <li>Wenn das Programm startet, setze die Variable auf 0.</li>
+            <li>In jedem Schleifendurchlauf der Haupt-Schleife addiere eins zu der Variable.</li>
+          </ol>
+	      Damit ist die Grundlage gelegt um die Laufzeit anzuzeigen. Um diese zu berechnen musst du die gerade erstellte Variable lediglich noch durch <code class="inline">FPS</code> teilen. Damit erhälst du Sekunden seit dem Starten der Zählung.</p>
+	    <p>Wie du einen Text anzeigen kannst findest du auf <a href="./text.html">hier</a>.</p>
+	  </div>
+    </li>
+    <li class="nodec">
+	  <h2>2. Echtzeit, unabhängig davon wie schnell das Programm läuft</h2>
+      <div>
+        <p>Die verstrichene Zeit lässt sich messen, indem man sich die Zeit zu Beginn des Programms merkt. Damit kann man zu jedem späteren Zeitpunkt eine Differenz bilden und so die verstrichene Zeit berechnen. Pygame had dazu eingene Befehle. Die Dokumentation dazu findest du <a href="https://www.pygame.org/docs/ref/time.html" target="_blank">hier</a>. Alternativ kannst du dazu aber auch die Bibliothek <code class="inline">time</code> verwenden. (Vollständige <a href="https://docs.python.org/3/library/time.html" target="_blank"><code class="inline">time</code> Dokumentation</a>)</p>
+        <p>Ein sehr simples Beispielprogramm könnte also so aussehen:</p>
+        <pre><code class="language-python">
+import time
+start_zeit = time.time()
+
+# Berechne irgend etwas ...
+
+end_zeit = time.time()
+differenz = end_zeit - start_zeit
+print("Zeit:", differenz) # Verstrichene Zeit in Sekunden
+        </code></pre>
+        <br />
+        <hr />
+        <p>Wie du Zahlen auf, z.B. zwei, Nachkommastllen runden kannst findest du <a href="./text_format.html">hier</a>.</p>
+        <p>Wie du einen Text anzeigen kannst findest du <a href="./text.html">hier</a>.</p>
+      </div>
+    </li></p>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>

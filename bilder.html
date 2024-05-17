@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Bilder | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Bilder anzeigen</h1>
+    <p>Ein Bild muss zuerst als Element erstellt und die Bilddaten geladen werden (Dokumentation <a href="https://www.pygame.org/docs/ref/image.html" target="_blank"><code class="inline">image.load()</code></a>). Wenn das Bild im selben Ordner wie das Programm liegt, dann reicht es den Dateinamen anzugeben. Enthält das Bild Transparenz (z.B. um den Hintergrund unsichtbar zu machen), so muss zusätzlich noch der Befehl <code class="inline">convert_alpha()</code> aufgerufen werden.
+      <pre><code class="language-python">
+bild = pygame.image.load("mein_bild.jpg") # ohne Transparenz
+bild_transparent = pygame.image.load("mein_bild_mit_transparenz.png").convert_alpha() # mit Transparenz
+      </code></pre>
+      Hat man das Bild-Element erstellt, kann man das Bild beliebig oft mit dem Befehl <a href="https://www.pygame.org/docs/ref/surface.html#pygame.Surface.blit" target="_blank"><code class="inline">blit()</code></a> zeichnen. Neben dem Bild müssen dort noch die Koordinaten links oben angegeben werden.
+      <pre><code class="language-python">
+FENSTER.blit(bild, (100, 150))
+      </code></pre>
+    </p>
+    
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>

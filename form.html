@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Formen | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Formen zeichnen</h1>
+    <p>Mit <a href="https://www.pygame.org/docs/ref/draw.html" target="_blank"><code class="inline">pygame.draw()</code></a> lassen sich alle möglichen formen Zeichnen. Unter anderen:</p>
+    <ul>
+      <li>
+        <a href="https://www.pygame.org/docs/ref/draw.html#pygame.draw.line" target="_blank"><code class="inline">line()</code></a>
+        <p>Um eine Linie zu zeichnen muss man dem Befehl folgendes mitgeben: Das Fenster in das gezeichnet werden soll, die Farbe sowie Start- und End-Koordinate der Linie. Zusätzlich kann man eine Dicke mitgeben. Für Linien die nicht horizontal oder vertikal sind empfiehlt es sich statt <code class="inline">line()</code> den Befehl <a href="https://www.pygame.org/docs/ref/draw.html#pygame.draw.aaline" target="_blank"><code class="inline">aaline()</code></a> zu verwenden. Damit wird die Linie "geglättet" und sieht weniger "pixelig" aus. Beispiel:</p>
+        <pre><code class="language-python">
+pygame.draw.line(FENSTER, "#00FF00", (50, 10), (100, 100), 3)
+        </code></pre>
+      </li>
+      <li>
+        <a href="https://www.pygame.org/docs/ref/draw.html#pygame.draw.rect" target="_blank"><code class="inline">rect()</code></a>
+        <p>Um ein Rechteck zu zeichnen muss man zuerst ein Rechteck-Eleent definieren. Dies tut <a href="https://www.pygame.org/docs/ref/rect.html" target="_blank"><code class="inline">Rect()</code></a>. Angeben muss man dabei die Koordinaten der Ecke links oben (x, y) sowie Breite und Höhe (b, h). Danach kann man das Rechteck auf das Programmfenster zeichnen. Dabei kann man auch die Farbe des Rechtecks angeben. Beispiel:</p>
+        <pre><code class="language-python">
+rechteck = pygame.Rect((110, 20), (20, 40))
+pygame.draw.rect(FENSTER, "#0000FF", rechteck)
+        </code></pre>
+      </li>
+      <li>
+        <a href="https://www.pygame.org/docs/ref/draw.html#pygame.draw.circle" target="_blank"><code class="inline">circle()</code></a>
+        <p>Dem Befehl zum Zeichnen eines Kreises muss man das Programmfenster, die Farbe des Kreises, die Koordinaten des Kreismittelpunkts sowie den Rasius des kreises angeben. Beispiel:</p>
+        <pre><code class="language-python">
+pygame.draw.circle(FENSTER, "#FFFF00", (200, 300), 50)
+        </code></pre>
+      </li>
+      <li>
+        <a href="https://www.pygame.org/docs/ref/draw.html#pygame.draw.polygon" target="_blank"><code class="inline">polygon()</code></a>
+        <p>Beim Polygon muss man das Programmfenster, die Farbe sowie eine Liste aller Eckpunkt-Koordinaten angeben. Beispiel:</p>
+        <pre><code class="language-python">
+eckpunkte = [(200, 30), (200, 150), (250, 240), (280, 130)]
+pygame.draw.polygon(FENSTER, "#00FFFF", eckpunkte)
+        </code></pre>
+      </li>
+    </ul>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>

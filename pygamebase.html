@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Grundaufbau | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Grundaufbau eines Programms mit pygame</h1>
+    <p>Auch wenn jedes Spiel / Animation / Simulation sich von jeder anderen unterscheidet, gibt es Basis-Code der für alle gleich ist. Dieser wird hier erklärt.</p>
+    <p>Damit das Programm Befehle aus der Bibliothek pygame erkennt und verwenden kann muss diese als erstes importiert werden. Zusätzlich kannst du noch die Befehle aus pygame.locals importieren. Dies vereinfacht den restlichen Code und macht diesen Lesbarer indem man z.B. zum Erkennen ob Taste 'x' gedruckt wurde <code class="inline">K_x</code> verwenden kann anstatt <code class="inline">pygame.K_x</code> jedesmal eingeben zu müssen.<br />
+    Danach kann man mit <code class="inline">init()</code> das Programmfenster öffnen.</p>
+    <pre><code class="language-python">
+import pygame
+from pygame.locals import *
+
+pygame.init() # Startet das Spielfenster
+   </code></pre>
+    <p>Im nächsten Codeabschnitt werden zuerst zwei Variablen mit der gewünschten Breite und Höhe des Programmfensters definiert und initialisiert. Danach wird eine dritte Variable - <code class="inline">FENSTER</code> - definiert. Diese repräsentiert das Programmfenster, in das wir später alle gewünschten Elemente zeichnen können.</p>
+    <pre><code class="language-python">
+FENSTER_BREITE = 1200
+FENSTER_HOEHE = 675
+FENSTER = pygame.display.set_mode((FENSTER_BREITE, FENSTER_HOEHE))
+    </code></pre>
+    <p>Dein Programm soll natürlich auch einen Titel oben am Fenster anzeigen. Diesen erstellst du mit folgendem Code:</p>
+    <pre><code class="language-python">
+pygame.display.set_caption("&lt;Titel einfügen&gt;")
+    </code></pre>
+    <p>Heutige Computer sind sehr schnell - aber nicht alle gleich schnell. Um zu verhindern, dass dein Programm auf schnellen Computern viel zu schnell abläuft, empfiehlt es sich zu beschränken wieviele Bilder dein Programm pro Sekunde maximal zeichnet. Wenn jemand einen sehr langsamen Computer hat - oder du für jedes neue Bild sehr viel Berechnen musst - kann das Programm trotzdem langsamer laufen, aber eben nicht schneller.<br />
+    Im folgenden Code habe ich eine Varialbe <code class="inline">FPS</code> auf 60 gesetzt. Die zweite Zeile begrenzt dann das Programm auf maximal diese 60 Bilder pro Sekunde. Nebenbei: FPS steht für "Frames per second".<br />
+    Du solltest die Maximale Bildzahl nicht tiefer als 30 setzen, da sonst Bewegungen gut sichtbar zu ruckeln beginnen.</p>
+    <pre><code class="language-python">
+FPS = 60
+pygame.time.Clock().tick(FPS)
+    </code></pre>
+    <p>Nun ist schon alles grundsätzliche eingerichtet. Was noch fehlt ist die Haupt-Schleife in der das Programm die zu zeichnenden Bilder berechnet. Die Schleife soll unendlich lange laufen. Immer am Ende der Schleife, nachdem alle deine Berechnungen ausgeführt worden sind, wird das Bild mit <code class="inline">pygame.display.update()</code> neu gezeichnet.</p>
+    <pre><code class="language-python">
+while True:
+    # Dein Programmcode hier ...
+    pygame.display.update()
+    </code></pre>
+    <p>Schlussendlich fehlt nun noch eine Möglichkeit dein Programm zu beenden. Wenn du auf den Knopf zum schliessen des Fensters klickst wollen wir, dass das Fenster geschlossen und das Programm beendet wird. Dafür können wir die "Events" (Ereignisse) von pygame verwenden. Pygame verwaltet eine Liste von aufgetretenen Ereignissen. Ein solches Ereignis ist <code class="inline">QUIT</code>. Klickt man also rechts oben (oder links auf Mac) auf den "Schliessen" Knopf, so fügt pygame den Event <code class="inline">QUIT</code> in der Liste der Ereignisse hinzu.<br />
+    Innerhalb der Haupt-Schleife können wir nun bei jedem Durchlauf die Ereignis-Liste durchgehen und prüfen ob diese das Ereignis vom Typ <code class="inline">QUIT</code> enthält. Wenn ja, dann soll das Fenster geschlossen und das Programm beendet werden. Dies erledigt der folgende Code:</p>
+    <pre><code class="language-python">
+for event in pygame.event.get(): # Verarbeite alle aufgetretenen Ereignisse
+    if event.type == QUIT: # Prüft ob das aufgetretene Ereignis ein "Schliessen" ist
+        pygame.quit() # Schliesst das Fenster
+        exit() # Beendet das Programm
+    </code></pre>
+    <p>Damit ist die erste Version des Programms komplett. Wenn es gestartet wird, öffnet sich ein Fenster in der gewünschten Grösse mit einem Titel in der Titelleiste. Mittels Klick auf schliessen kann das Programm wieder beendet werden.<br />
+    Alles ist nun bereit, dass du das Grund-Programm individualisieren und zu deinem eigenen machen kannst.
+    </p>
+    <hr />
+    <p>Der oben erklärte Code am Stück:</p>
+    <pre><code class="language-python">
+# Bibliothek die ein einfaches Programmieren von Spielen ermöglicht
+import pygame
+# Ermöglicht einen einfacheren Zugriff auf Variablen wie z.B. QUIT
+from pygame.locals import *
+
+pygame.init() # Startet das Spielfenster
+
+# Definiert die grösse des Fensters und speichert dieses in einer Variable
+FENSTER_BREITE = 1200
+FENSTER_HOEHE = 675
+FENSTER = pygame.display.set_mode((FENSTER_BREITE, FENSTER_HOEHE))
+
+# Setzt den Titel des Fensters
+pygame.display.set_caption("<Titel einfügen>")
+
+# Limitiert die Anzahl maximal gezeichneten Bilder pro Sekunde
+FPS = 60
+pygame.time.Clock().tick(FPS)
+
+# Unendlich laufende Hauptschleife (Läuft so lange wie das Programm).
+while True:
+    for event in pygame.event.get(): # Verarbeite alle aufgetretenen Ereignisse
+        if event.type == QUIT: # Prüft ob das aufgetretene Ereignis ein "Schliessen" ist
+            pygame.quit() # Schliesst das Fenster
+            exit() # Beendet das Programm
+    
+    # ... Hier kommt dein Code
+    
+    # Zeichnet das Fenster neu
+    pygame.display.update()
+    </code></pre>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>

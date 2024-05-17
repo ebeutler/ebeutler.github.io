@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Texte | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Anzeigen von Texten</h1>
+    <p>Um Text anzuzeigen musst du als erstes eine Schrift (mit Typ und Grösse) definieren. Du kannst gleich am Anfang deines Programms alle Schriften die du benötigst definieren und diese dann immer wieder verwenden.<br />
+    Eine Schrift definierst du wie unten angezeigt. Den Variablennamen solltest du so wählen, dass später im Programm klar ist um was für eine Schrift es sich handelt. In den Klammern gibst du den Schrift-Typ (als String/Text) sowie die Schrift-Grösse als Zahl an. (Offizielle Dokumentation <a href="https://www.pygame.org/docs/ref/font.html#pygame.font.SysFont" target="_blank"><code class="inline">SysFont()</code></a>)</p>
+    <pre><code class="language-python">
+schrift_titel = pygame.font.SysFont('Arial', 48)
+    </code></pre>
+    <p>Hast du die Schrift definiert kannst du diese Später beliebig oft verwenden. Die Schrift enthält dazu den Befehl <code class="inline">render()</code>. Damit "schreibst" du Text auf ein Rechteck. <code class="inline">render()</code> gibst du den anzuzeigenden Text mit, sowie die gewünschte Textfarbe (im Beispiel Rot, Offizielle Dokumentation <a href="https://www.pygame.org/docs/ref/font.html#pygame.font.Font.render" target="_blank"><code class="inline">render()</code></a>). Das Textfeld kannst du dann mit dem Befehl <code class="inline">blit()</code> auf dein Programmfenster zeichnen. Ausser dem zu zeichnenden Textfeld musst du dabei noch die Position angeben (Im Beispiel x=20 und y=10 angegeben als <code class="inline">(20, 10)</code>, Offizielle Dokumentation <a href="https://www.pygame.org/docs/ref/surface.html#pygame.Surface.blit" target="_blank"><code class="inline">blit()</code></a>).</p>
+    <pre><code class="language-python">
+text_feld = schrift_titel.render("Mein Text", True, "#FF0000")
+FENSTER.blit(text_feld, (20, 10))
+    </code></pre>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>
