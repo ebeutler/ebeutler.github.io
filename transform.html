@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Verformungen | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Verformungen</h1>
+    <p>Zur Vollständigen Dokumentation über Verformungen: <a href="https://www.pygame.org/docs/ref/transform.html" target="_blank"><code class="inline">transform</code></a></p>
+    <p>&nbsp;</p>
+    <p>Elementen (Surfaces) können in pygame auf viele verschiedene Weisen verformt werden. Hier die üblichsten, weitere sind in der offiziellen Dokumentation zu finden. In den Beispielen wird jeweils davon ausgegangen, dass ein, in der Variable <code class="inline">bild</code> gespeichertes, Bild verformt werden soll.</p>
+    <ul>
+      <li>
+        <h2>Rotation (drehen)</h2>
+        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/transform.html#pygame.transform.rotate" target="_blank"><code class="inline">rotate()</code></a> kann ein Element gedreht werden. Neben dem zu drehenden Element muss man ausserdem die Grad angeben um die gedreht werden soll. Im Beispiel wird das Bild um 45° nach rechts gedreht.</p>
+        <pre><code class="language-python">
+rotiert_45grad_rechts = pygame.transform.rotate(bild, -45)
+        </code></pre>
+      </li>
+      <li>
+        <h2>Skalieren (verkleinern & vergrössern)</h2>
+        <p>Zum verkleinern oder vergrössern von Elementen gibt es zwei Möglichkeiten. Ändern der Grösse auf fixe Dimensionen und proportionale Änderungen. Mit dem Befehl <a href="https://www.pygame.org/docs/ref/transform.html#pygame.transform.scale" target="_blank"><code class="inline">scale()</code></a> kann ein Element auf eine feste Grösse geändert werden. Im Beispiel wird das Bild auf die Dimensionen 100 x 50 geändert. Dabei kann das Element "gequetscht" (oder gedehnt) werden, wenn man die Seitenverhältnisse ändert. Mit dem Befehl <a href="https://www.pygame.org/docs/ref/transform.html#pygame.transform.scale_by" target="_blank"><code class="inline">scale_by()</code></a> kann, bei gleichbleibenden Seitenverhältnissen, verkleinert oder vergrössert werden. Zahlen &lt;1 verkleinern, Zahlen &gt;1 vergrössern das Element.<br />
+        Da, speziell beim Vergrössern, ein Bild "verpixeln" kann gibt es auch noch die Befehle <a href="https://www.pygame.org/docs/ref/transform.html#pygame.transform.smoothscale" target="_blank"><code class="inline">smoothscale()</code></a> (bzw. <a href="https://www.pygame.org/docs/ref/transform.html#pygame.transform.smoothscale_by" target="_blank"><code class="inline">smoothscale_by()</code></a>), welche die Kanten etwas schöner machen, dafür aber etwas langsamer sind. Diese zwei Befehle sind gleich zu verwenden wie die zwei oben beschriebenen.</p>
+        <pre><code class="language-python">
+skaliert_100x50 = pygame.transform.scale(bild, (100, 50))
+skaliert_halb = pygame.transform.scale_by(bild, 0.5)
+        </code></pre>
+      </li>
+      <li>
+        <h2>Spiegeln</h2>
+        <p>Ein Element kann mit <a href="https://www.pygame.org/docs/ref/transform.html#pygame.transform.flip" target="_blank"><code class="inline">flip()</code></a> horizontal und/oder vertikal gespiegelt werden. Neben dem Element muss man dabei angeben ob horizontal gespiegelt werden soll (True/False) sowie als zweites ob vertikal gespiegelt werden soll (True/False).</p>
+        <pre><code class="language-python">
+gespiegelt_horizontal = pygame.transform.flip(bild, True, False)
+gespiegelt_vertikal = pygame.transform.flip(bild, False, True)
+        </code></pre>
+      </li>
+    </ul>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>

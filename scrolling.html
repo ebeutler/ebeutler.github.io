@@ -30,7 +30,7 @@
       <li>Zeichne das Bild zweimal, das erstemal an x-Position <code class="inline">hintergr_x</code> und das zweite mal an x-Position <code class="inline">hintergr_x + hintergr_b</code> wobei <code class="inline">hintergr_b</code> die Breite des Hintergrundbildes ist.<br />
       Damit hast du das Bild zweimal nahtlos aneinander gezeichnet.</li>
       <li>Zähle in jedem Schritt <code class="inline">hintergr_x</code> eins runter (bzw. rauf für scrollen in die andere Richtung).<br />
-      Prüfe danach ob <code class="inline">hintergr_x + hintergr_b</code> kleiner oder gleich 0 ist. Trifft das zu, so ist das erste Bild komplett aus dem Bildschirm gewandert und das zweite Bild ist exakt am linken Bildschirmrand. Wenn du in dem Moment <code class="inline">hintergr_x = 1</code> setzt, dann startet der ganze Ablauf von neuem und man merkt nichts vom Übergang.</li>
+      Prüfe danach ob <code class="inline">hintergr_x + hintergr_b</code> kleiner oder gleich 0 ist. Trifft das zu, so ist das erste Bild komplett aus dem Bildschirm gewandert und das zweite Bild ist exakt am linken Bildschirmrand. Wenn du in dem Moment <code class="inline">hintergr_x = -1</code> setzt, dann startet der ganze Ablauf von neuem und man merkt nichts vom Übergang.</li>
     </ol>
     </p>
     <p>Um den Hintergrund langsamer oder schneller zu bewegen muss man lediglich in jedem Schritt <code class="inline">hintergr_x</code> weniger oder mehr verändern. Subtrahiert man z.B. nur in jedem zweiten Schleifendurchlauf eins von <code class="inline">hintergr_x</code>, so läuft der Hintergrund langsamer. Natürlich kann man die Bewegung anstatt automatisch auch von gedrückten Tasten oder anderen Konditionen abhängig machen und so ganz individuell scrollen.</p>
