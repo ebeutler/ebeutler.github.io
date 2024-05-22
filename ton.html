@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Ton | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Ton abspielen</h1>
+    <p>Zur Vollständigen Dokumentation über Musik und Sound-Effekte: <a href="https://www.pygame.org/docs/ref/mixer.html" target="_blank"><code class="inline">mixer</code></a>.</p>
+    <p>&nbsp;</p>
+    <p>In pygame werden zwei Arten von Ton unterschieden: Musik (läuft im Hintergrund) und Sound (Sound-Effekte - laufen einmalig und normalerweise kurz). Ton kann in den Dateiformaten wav und ogg abgespielt werden. Andere Audio-Dateien (z.B. mp3) müssen zuerst in eines der beiden Formate umgewandelt werden.</p>
+    <ul>
+      <li>
+        <h2>Musik</h2>
+        <pre><code class="language-python">
+pygame.mixer.music.load("hintergrundmusik.wav")
+pygame.mixer.music.play(-1)
+        </code></pre>
+        <pre><code class="language-python">
+pygame.mixer.music.pause()
+# Mach irgendwas ohne Hintergrundmusik
+pygame.mixer.music.unpause()
+        </code></pre>
+        <pre><code class="language-python">
+pygame.mixer.music.stop()
+        </code></pre>
+      </li>
+      <li>
+        <h2>Sounds</h2>
+        <pre><code class="language-python">
+sound_vogel = pygame.mixer.Sound("zwitschern.ogg")
+pygame.mixer.Sound.play(sound_vogel)
+        </code></pre>
+      </li>
+    </ul>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>
