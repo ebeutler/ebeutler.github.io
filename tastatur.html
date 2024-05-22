@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Tastatureingaben | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Tastatureingaben</h1>
+    <p>Zur Vollständigen Dokumentation über die Tastatursteuerung: <a href="https://www.pygame.org/docs/ref/key.html" target="_blank"><code class="inline">key</code></a></p>
+    <p>&nbsp;</p>
+    <p> Um auf Tastatureingaben zu reagieren, musst du wieder die Events (Ereignisse) verwenden, wie schon im Grundaufbau beim schliessen des Fensters. Die Tastatur kann dabei die Ereignisse <code class="inline">KEYDOWN</code> und <code class="inline">KEYUP</code> auslösen. Jeder Tastendruck löst zuerst <code class="inline">KEYDOWN</code> aus und beim Loslassen der Taste wieder ein <code class="inline">KEYUP</code>. Im Beispiel unten führen beide Ereignisse zu einem Ausführen des Codes. Innerhalb der for-Schleife, die über alle Ereignisse iteriert kannst du in einem zusäztlichen <code class="inline">elif</code> prüfen ob es sich um so ein Tastatur-Ereignis handelt. Wenn ja, dann hat das Ereignis zwei Variablen: <code class="inline">key</code> (welche Taste gedrückt wurde) und <code class="inline">mod</code> (welche Modifikatoren - z.B. ALT, SHIFT, ... - gedrückt wurden). Damit kannst du prüfen was genau gedrückt wurde und entsprechend darauf reagieren. Eine vollständige Liste aller Tasten-Kürzel (die du im <code class="inline">if</code> zum Vergleichen benötigst) findest du in der vollständigen Dokumentation (<a href="https://www.pygame.org/docs/ref/key.html" target="_blank"><code class="inline">key</code></a>).</p>
+    <pre><code class="language-python">
+for event ...
+  if event.type ...
+    .....
+  elif event.type == KEYDOWN or event.type == KEYUP:
+    if event.key == K_a and (event.mod & pygame.KMOD_SHIFT):
+        # Mach was wenn 'A' gedrückt
+        print('GROSSES A')
+    elif event.key == K_a:
+        # Mach was anderes wenn 'a' gedrückt
+        print('kleines a')
+    </code></pre>
+    <p>&nbsp;</p>
+    <p>Alternativ kann man mit dem Befehl <a href="https://www.pygame.org/docs/ref/key.html#pygame.key.get_pressed" target="_blank"><code class="inline">get_pressed()</code></a> auch jederzeit abfragen welche Taste(n) gerade gedrückt wird/werden.</p>
+    <pre><code class="language-python">
+taste = pygame.key.get_pressed()
+if taste[K_a]:
+  # a wurde gedrückt
+    </code></pre>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>

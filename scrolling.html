@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Hintergrund | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Laufender Hintergrund</h1>
+    <p>Einen sich bewegenden (scrollenden) Hintergund kann man recht einfach umsetzen. Als erstes braucht man dazu ein Bild, dass man nahtlos aneinanderhängen kann. Wenn du das Bild zweimal nebeneinander legst, so soll man nicht sehen können, wo das erste Bild endet und das zweite beginnt (für horizontales scrollen - übereinander für vertikales).</p>
+    <p>In python kannst du das Bild dann wie in "<a href="./bilder.html">ein Bild laden und anzeigen</a>" beschrieben, laden. Hast du das Bild geladen gehst du wie folgt vor (Als beispiel automatisches horizontales Scrollen von rechts nach links):
+    <img src="./img/scrolling_bsp.png" width="100%" />
+    <ol>
+      <li>Lege eine Variable an in der du dir die Bild-Position auf der x-Achse merkst (z.B. <code class="inline">hintergr_x = 0</code>).</li>
+      <li>Zeichne das Bild zweimal, das erstemal an x-Position <code class="inline">hintergr_x</code> und das zweite mal an x-Position <code class="inline">hintergr_x + hintergr_b</code> wobei <code class="inline">hintergr_b</code> die Breite des Hintergrundbildes ist.<br />
+      Damit hast du das Bild zweimal nahtlos aneinander gezeichnet.</li>
+      <li>Zähle in jedem Schritt <code class="inline">hintergr_x</code> eins runter (bzw. rauf für scrollen in die andere Richtung).<br />
+      Prüfe danach ob <code class="inline">hintergr_x + hintergr_b</code> kleiner oder gleich 0 ist. Trifft das zu, so ist das erste Bild komplett aus dem Bildschirm gewandert und das zweite Bild ist exakt am linken Bildschirmrand. Wenn du in dem Moment <code class="inline">hintergr_x = 1</code> setzt, dann startet der ganze Ablauf von neuem und man merkt nichts vom Übergang.</li>
+    </ol>
+    </p>
+    <p>Um den Hintergrund langsamer oder schneller zu bewegen muss man lediglich in jedem Schritt <code class="inline">hintergr_x</code> weniger oder mehr verändern. Subtrahiert man z.B. nur in jedem zweiten Schleifendurchlauf eins von <code class="inline">hintergr_x</code>, so läuft der Hintergrund langsamer. Natürlich kann man die Bewegung anstatt automatisch auch von gedrückten Tasten oder anderen Konditionen abhängig machen und so ganz individuell scrollen.</p>
+    <p>In der Vertikalen funktioniert das analog mit einem Bild das zweimal übereinander liegt und nach oben oder unten scrollt.</p>
+    <p>Beispiel Hintergrundbild von <a href="https://opengameart.org/content/several-scrolling-backgrounds-and-layerable-runners" target="_blank">opengameart.org</a></p>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>

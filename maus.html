@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Maussteuerung | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Maussteuerung</h1>
+    <p>Zur Vollständigen Dokumentation über die Maussteuerung: <a href="https://www.pygame.org/docs/ref/mouse.html" target="_blank"><code class="inline">mouse</code></a></p>
+    <p>&nbsp;</p>
+    <p>Die Mausposition kannst du mit dem Befehl <a href="https://www.pygame.org/docs/ref/mouse.html#pygame.mouse.get_pos" target="_blank"><code class="inline">get_pos()</code></a> auslesen. Die x- und y-Koordinaten sind dabei relativ zur linken oberen Ecke des Programmfensters.</p>
+    <pre><code class="language-python">
+maus_pos = pygame.mouse.get_pos() # Mausposition als (x, y) auslesen
+x = maus_pos[0]
+y = maus_pos[1]
+    </code></pre>
+    <p>&nbsp;</p>
+    <p>Um auf Klicks zu reagieren, musst du wieder die Events (Ereignisse) verwenden, wie schon im Grundaufbau beim schliessen des Fensters. Die Maus kann dabei die Ereignisse <code class="inline">MOUSEBUTTONDOWN</code>, <code class="inline">MOUSEBUTTONUP</code>, <code class="inline">MOUSEWHEEL</code> und <code class="inline">MOUSEMOTION</code> auslösen. Im Beispiel unten wird <code class="inline">MOUSEBUTTONDOWN</code> verwendet um einen Klick auf die Maus zu erkennen. Innerhalb der for-Schleife, die über alle Ereignisse iteriert kannst du dann in einem zusäztlichen <code class="inline">elif</code> prüfen ob es sich um so ein <code class="inline">MOUSEBUTTONDOWN</code>-Ereignis handelt. Wenn ja kannst du prüfen ob Taste 0 (links), 1 (mitte) oder 2 (rechts) geklickt wurde. (Offizielle Dokumentation: <a href="https://www.pygame.org/docs/ref/mouse.html#pygame.mouse.get_pressed" target="_blank"><code class="inline">get_pressed()</code></a>)
+    </p>
+    <pre><code class="language-python">
+for event ...
+  if event.type ...
+    .....
+  elif event.type == pygame.MOUSEBUTTONDOWN:
+    if pygame.mouse.get_pressed()[0]: # Links-Klick
+      # Mach was wenn links geklickt wurde
+    elif pygame.mouse.get_pressed()[2]: # Rechts-Klick
+      # Mach was wenn rechts geklickt wurde
+    </code></pre>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>

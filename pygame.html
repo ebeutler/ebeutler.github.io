@@ -19,7 +19,6 @@
     <p>Offizielle <a href="https://www.pygame.org/docs/" target="_blank"><code class="inline">pygame Dokumentation</code></a></p>
     <h1>Einrichten</h1>
     <ol>
-      <!--<li>TODO 0 Zusammenarbeit</li>-->
       <li><a href="./pygameinstall.html">Paket pygame in Thonny installieren</a></li>
       <li><a href="./pygamebase.html">Grundaufbau eines Spiels</a></li>
     </ol>
@@ -31,14 +30,19 @@
       <li><a href="./text_format.html">Zahlen formatieren (z.B. 2 Nachkommastellen)</a></li>
       <li><a href="./timing.html">Zeit messen</a></li>
       <li><a href="./bilder.html">ein Bild laden und anzeigen</a></li>
+      <li><a href="./scrolling.html">einen mitlaufenden Hintergrund</a></li>
+      <li><a href="./maus.html">etwas mit der Maus steuern</a></li>
+      <li><a href="./tastatur.html">auf Tastatureingaben reagieren</a></li>
       <!--
-	    <li>einen, sich Bewegenden, Hintergrund</li>
-      <li>Elemente bewegen</li>
-      <li>Elemente drehen / vergrössern / verkleinern</li>
-      <li>auf Mausklicks reagieren</li>
-      <li>auf Tastatureingaben reagieren</li>
+      <li>Elemente Verformen (drehen, vergrössern, verkleinern, ...)</li>https://www.pygame.org/docs/ref/transform.html
 	    <li>TODO 1 Animationen (z.B. laufender Figur)</li>
-      <li>TODO 2 Ton abspielen</li>
+if event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
+    player = pygame.image.load(images[counter])
+    counter = (counter + 1) % len(images)
+    playerY = playerY + 5
+...
+
+      <li>TODO 2 Ton abspielen</li>https://www.pygame.org/docs/ref/mixer.html
       <li>TODO Kollisionen von Elementen erkennen</li>
       <li>TODO random -> externer Link (und Hinweis auf Klassennotizbuch)</li>
       <li>TODO Dateien Speichern -> Hinweis auf Klassennotizbuch</li>-->
