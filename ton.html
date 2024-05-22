@@ -28,21 +28,26 @@
     <ul>
       <li>
         <h2>Musik</h2>
+        <p>Musik läuft normalerweise länger und relativ unabhängig vom Programmgeschehen. Aber natürlich kann man auch das Abspielen von Musik steuern. Alle Befehle sind unter <a href="https://www.pygame.org/docs/ref/music.html" target="_blank"><code class="inline">music</code></a> dokumentiert. Die wichtigsten werden hier beschrieben.<br />
+        Musik muss als erstes geladen werden. Dies macht man mit <a href="https://www.pygame.org/docs/ref/music.html#pygame.mixer.music.load" target="_blank"><code class="inline">load()</code></a> unter Angabe des Dateinamens. Es empfiehlt sich die Datei im selben Ordner wie den Programmcode abzulegen, ansonsten muss man den ganzen Pfad und nicht nur den Dateinamen angeben. Ist die Musik geladen, so kann man sie mit <a href="https://www.pygame.org/docs/ref/music.html#pygame.mixer.music.play" target="_blank"><code class="inline">play()</code></a> starten. Angeben muss man dabei wie oft sie abgespielt werden soll. Im Beispiel unten wird -1 angegeben. Das bedeutet die Musik wird unendlich wiederholt.</p>
         <pre><code class="language-python">
 pygame.mixer.music.load("hintergrundmusik.wav")
 pygame.mixer.music.play(-1)
         </code></pre>
+        <p>Die Musik kann mit <a href="https://www.pygame.org/docs/ref/music.html#pygame.mixer.music.pause" target="_blank"><code class="inline">pause()</code></a> pausiert bzw. <a href="https://www.pygame.org/docs/ref/music.html#pygame.mixer.music.pause" target="_blank"><code class="inline">unpause()</code></a> nach einer Pause weiter abgespielt werden.</p>
         <pre><code class="language-python">
 pygame.mixer.music.pause()
 # Mach irgendwas ohne Hintergrundmusik
 pygame.mixer.music.unpause()
         </code></pre>
+        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/music.html#pygame.mixer.music.stop" target="_blank"><code class="inline">stop()</code></a> kann man die Musik stoppen.</p>
         <pre><code class="language-python">
 pygame.mixer.music.stop()
         </code></pre>
       </li>
       <li>
         <h2>Sounds</h2>
+        <p>Wie Musik auch gibts für Sound-Effekte verschiedene Steuerungsmöglichkeiten. Die häufigste Verwendung ist aber, den Sound-Effekt einfach einmal abzuspielen. Die volle Dokumentation findest du unter <a href="https://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound" target="_blank"><code class="inline">Sound()</code></a>. Um einen Sound abspielen zu können muss man ihn zuerst unter Angabe des Dateinamens laden. Hat man einmal eine Variable mit dem Sound erstellt, kann man diese beliebig oft verwenden. Jedes Mal wenn man dann <a href="https://www.pygame.org/docs/ref/mixer.html#pygame.mixer.Sound.play" target="_blank"><code class="inline">play()</code></a> für den Sound-Effekt aufruft, wird er abgespielt.</p>
         <pre><code class="language-python">
 sound_vogel = pygame.mixer.Sound("zwitschern.ogg")
 pygame.mixer.Sound.play(sound_vogel)
