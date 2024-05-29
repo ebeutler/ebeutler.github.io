@@ -32,6 +32,21 @@ schrift_titel = pygame.font.SysFont('Arial', 48)
 text_feld = schrift_titel.render("Mein Text", True, "#FF0000")
 FENSTER.blit(text_feld, (20, 10))
     </code></pre>
+    <p>&nbsp;</p>
+    <h1>Mehrzeiliger Text</h1>
+    <p>Pygame erlaubt es nicht, mehrzeiligen Text direkt auszugeben. Also muss du dir mit einem Umweg behelfen: Erstelle eine Liste mit allen Zeilen deines Textes und gib diese dann untereinander aus. Ein Beispiel dazu siehst du unten. Es werden drei Zeilen erstellt und danach mit einer while-Schleife alle drei Zeilen ausgegeben. Die Zählvariable z wird dabei verwendet um die y-Koordinate so anzupassen, dass die Zeilen untereinader ausgegeben werden.
+    </p>
+    <pre><code class="language-python">
+zeilen = [
+    SCHRIFT.render("1. meine", True, "#00FFFF"),
+    SCHRIFT.render("2. erste", True, "#00FFFF"),
+    SCHRIFT.render("3. Auflistung", True, "#00FFFF")
+    ]
+z = 0
+while z < len(zeilen):
+    FENSTER.blit(zeilen[z], (10, 20 + (z * 30)))
+    z += 1
+    </code></pre>
   </article>
   <footer>&copy; 2024, Edoardo Beutler</footer>
 </body>
