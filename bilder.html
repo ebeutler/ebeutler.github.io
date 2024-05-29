@@ -32,7 +32,19 @@ bild_transparent = pygame.image.load("mein_bild_mit_transparenz.png").convert_al
 FENSTER.blit(bild, (100, 150))
       </code></pre>
     </p>
-    
+    <p>&nbsp;</p>
+    <h1>Bildhintergrund entfernen (Element freistellen)</h1>
+    <p>Die meisten Bilder die man im Internet findet haben einen Hintergrund. Oft will man aber im Programm nur das Objekt und nicht den Hintergrund sehen. Grundsätzlich gibt es zwei Möglichkeiten:</p>
+    <ul>
+      <li>
+        <h2>Selber machen (Photoshop) - wie speichern?</h2>
+        <p>Hast du den Hintergrund mit Photoshop entfernt, gehst du auf Datei und dann Exportieren als. In der Eingabemaske wählst du als Format PNG und beim Farbraum "Konvertieren in sRGB", nicht aber "Farbprofil eingebetten". Damit solltes du die Datei in pygame laden können (Siehe Bildschirmfoto).<img src="./img/PS_export_config.png" style="max-width:100%" /></p>
+      </li>
+      <li>
+        <h2>Internet machen lassen</h2>
+        <p>Im Internet gibt es viele Seiten die Elemente in Bildern freistellen können. Eine solche Seite ist <a href="https://remove.bg" target="_blank">https://remove.bg</a>.</p>
+      </li>
+    </ul>
   </article>
   <footer>&copy; 2024, Edoardo Beutler</footer>
 </body>
