@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Animationen | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Animationen</h1>
+    <p>Um beliebige Elemente zu bewegen (z.B. einen Kreis) reicht es die x- und y-Koordinaten beim Zeichnen ändern. Darauf wird hier nicht weiter eingegangen. Hier wird erklärt wie man ein Bild animieren kann.<br />
+    Grundsätzlich ist eine Animation nichts anderes als eine Serie von Bildern die nacheinander angezeigt werden. Dafür braucht man als erstes die Bilder in allen Bewegungsphasen. Als Beispiel arbeiten wir hier mit dem Körper eines rennenden "Männchens". Die Animation besteht aus folgenden sechs Bildern:</p>
+    <p><img src="./img/runner_asset.png" width="300" /></p>
+    <p>Zeichnet man diese 6 Bilder in schneller Folge hintereinander, so entsteht die Illusion von Bewegung:<br />
+    <img src="./img/runner.gif" /></p>
+    <p>Wie du das erreichst hängt stark davon ab wie genau du die Bilder vorliegen hast. Im Beispiel sind alle Animationsphasen auf einem Bild und man muss lediglich verschiedene Bildausschnitte des selben Bildes anzeigen. Hast du alle Bilder separat vorliegen, so musst du alle Bilder in einer Liste (oder in separaten Variablen) laden und danach der Reihe nach anzeigen.</p>
+    <p>Für das Beispiel-Bild oben könnte das wie folgt aussehen:<br />
+    Als erstes musst das Bild laden um es dann später (in der Hauptschleife) zu verwenden.</p>
+    <pre><code class="language-python">
+runner = pygame.image.load("runner_asset.png").convert_alpha()
+    </code></pre>
+    <p>Das Beispielbild ist 600 x 400 Pixel. Somit ist jede der sechs Animationsphase 200 x 200 Pixeln gross. Du kannst also zwei Variablen für die Position der Animationsstufen einführen. In diesen Koordinaten bezeichnet (0,0) das Bild links oben und (2,1) das Bild rechts unten.</p>
+    <pre><code class="language-python">
+runner_x = 0
+runner_y = 0
+    </code></pre>
+    <p>Beim Zeichnen von Bildern erlaubt es pygame einen Teil des Bild auszuschneiden (Corp). Du kannst also die Variablen <code class="inline">runner_x</code> und <code class="inline">runner_y</code> verwenden um die linke obere Ecke jeder Animationsstufe innerhalb des Bildes zu berechnen und dann das entsprechende 200 x 200 Segment des Bildes zu zeichnen.</p>
+    <pre><code class="language-python">
+crop = (200*runner_x, 200*runner_y, 200, 200)
+FENSTER.blit(runner, (500, 400), crop)
+    </code></pre>
+    <p>Je nach Verwendung (wann bzw. in Bezug zu was soll die Animation laufen) brauchst du nun nur noch die Variablen <code class="inline">runner_x</code> (Bereich 0-2) und <code class="inline">runner_y</code> (Bereich 0-1) so zu verändern, dass zum richtigen Zeitpunkt ein anderes Bild gezeichnet wird.</p>
+    <p>Beispiel "Männchen" von <a href="https://opengameart.org/content/several-scrolling-backgrounds-and-layerable-runners" target="_blank">opengameart.org</a></p>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>
