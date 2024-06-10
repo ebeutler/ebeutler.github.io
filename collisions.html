@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Kollisionen | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Kollisionen erkennen</h1>
+    <p>Es gibt unzählige Möglichkeiten zusammenstossende Elemente zu erkennen. Je nach Form und Bewegungsart. Meistens lässt sich das über die Koordinaten und Dimensionen der Elemente berechnen. Am häufigsten ist aber wohl das Kollidieren von Rechtecken. Dafür gibt es in pygame auch schon verschiedene Befehle die einem dabei unterstützen:</p>
+    <ul>
+      <li>
+        <h2>Ist ein Punkt in einem Rechteck?</h2>
+        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidepoint" target="_blank"><code class="inline">collidepoint()</code></a> ...</p>
+        <pre><code class="language-python">
+
+        </code></pre>
+      </li>
+      <li>
+        <h2>Überlappen zwei Rechtecke?</h2>
+        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/rect.html#pygame.Rect.colliderect" target="_blank"><code class="inline">colliderect()</code></a> ...</p>
+        <pre><code class="language-python">
+
+        </code></pre>
+      </li>
+      <li>
+        <h2>Kollidiert ein Rechteck mit irgend einem anderen aus einer gegebenen Liste?</h2>
+        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidelist" target="_blank"><code class="inline">collidelist()</code></a> ...</p>
+        <pre><code class="language-python">
+
+        </code></pre>
+      </li>
+    </ul>
+    <p>Es gibt noch ein paar weitere Befehle. Die Dokumentation dazu findest du auf <a href="https://www.pygame.org/docs/ref/rect.html" target="_blank"><code class="inline">rect</code></a>.</p>
+    <h1>Kollision mit Bild</h1>
+    <p>Soll ein Bild mit einem anderen objekt kollidieren, so ist eine Möglichkeit dafür, das Bildelement in ein Rechteck umzuwandeln und dann dieses (anstatt des ursprünglichen Bildes) zu zeichnen. Damit kann man wieder die oben dokumentierten Methoden zum Prüfen von Rechteckskollisionen verwenden. Natürlich kann man nicht nur eines, sondern auch mehrere Bilder in Rechtecke umwandeln und so auf Kollisionen prüfen. (Beispiel Bild/Animation siehe )</p>
+    <pre><code class="language-python">
+# Ein "Auto" (farbiges Rechteck), bei dem geprüft werden soll ob es die Figur "trifft"
+auto = pygame.Rect((0, 500), (240, 100))
+auto_pos = pygame.draw.rect(FENSTER, "#FF00FF", auto)
+# Gibt ein Rechteck mit der Position der Figur zurück und spreichert das als runner_rect
+runner_rect = FENSTER.blit(runner, (500, 400), crop)
+# Prüft ob auto_pos mit runner_pos kollidiert - also ob diese sich überschneiden
+if runner_pos.colliderect(auto_pos):
+  # Reagiere auf die Kollision. Beispiel zeichnet einen Kreis auf das "Auto":
+  pygame.draw.circle(FENSTER, "#0000FF", (120, 550), 50)
+    </code></pre>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>
