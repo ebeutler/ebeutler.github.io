@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Menü | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Menü (oder verschiedene Ansichten) erstellen</h1>
+    <p>Grundsäztlich wird die Anzeige ja viele Male pro Sekunde neu gezeichnet. Will man also verschiedene Ansichten haben - z.B. ein Menü und ein Spielbildschirm - so muss irgendwie entschieden werden was jeweils neu gezeichnet werden soll. Am einfachsten geht das mit einer Status-Variablen in der man speichert ob man sich aktuell gerade im Menü befindet oder nicht. Das könnte in etwa so aussehen:</p>
+    <pre><code class="language-python">
+if show_menu:
+    # Zeige das Menü an
+
+    # Wird auf eine bestimmte Stelle geklickt oder eine Taste gedrückt kann mit
+    # show_menu = False
+    # umgestellt werden und der Spielbildschirm wird angezeigt.
+else:
+    # Zeige den Spielbildschirm an
+    </code></pre>
+  </article>
+  <footer>&copy; 2024, Edoardo Beutler</footer>
+</body>
+</html>

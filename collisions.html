@@ -26,27 +26,30 @@
     <ul>
       <li>
         <h2>Ist ein Punkt in einem Rechteck?</h2>
-        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidepoint" target="_blank"><code class="inline">collidepoint()</code></a> ...</p>
+        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidepoint" target="_blank"><code class="inline">collidepoint()</code></a> kann geprüft werden ob ein Punkt innerhalb eines Rechtecks liegt. Der Beispielcode gibt <code class="inline">True</code> zurück, wenn der Punkt mit den Koordinaten (100, 500) innerhalb des, unter dem Namen <code class="inline">rechteck</code> gespeicherten, Rechtecks liegt. Andernfalls ist das Ergebnis <code class="inline">False</code></p>
         <pre><code class="language-python">
-
+rechteck.collidepoint((100, 500))
         </code></pre>
       </li>
       <li>
         <h2>Überlappen zwei Rechtecke?</h2>
-        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/rect.html#pygame.Rect.colliderect" target="_blank"><code class="inline">colliderect()</code></a> ...</p>
+        <p>Der Befehl <a href="https://www.pygame.org/docs/ref/rect.html#pygame.Rect.colliderect" target="_blank"><code class="inline">colliderect()</code></a> prüft ob sich zwei Rechtecke überschneiden.</p>
         <pre><code class="language-python">
-
+rechteck_1.colliderect(rechteck_2)
         </code></pre>
       </li>
       <li>
         <h2>Kollidiert ein Rechteck mit irgend einem anderen aus einer gegebenen Liste?</h2>
-        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidelist" target="_blank"><code class="inline">collidelist()</code></a> ...</p>
+        <p>Mit dem Befehl <a href="https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidelist" target="_blank"><code class="inline">collidelist()</code></a> können in einem Schritt alle mit einem gegebenen Rechteck kollidierenden Rechtecke aus einer gegebenen Liste gefunden werden. <code class="inline">collidelist()</code> nimmt eine Liste von Rechtecken entgegen und gibt eine Liste zurück in der alle Indizes kollidierender Rechtecke stehen.</p>
         <pre><code class="language-python">
-
+rechteck_liste = [rechteck_1, rechteck_2, rechteck_3, rechteck_4]
+kollisionen = rechteck.collidelist(rechteck_liste)
         </code></pre>
+        Beispiel: angenommen <code class="inline">rechteck_2</code> und <code class="inline">rechteck_4</code> kollidieren mit <code class="inline">rechteck</code>. In dem Fall wird in <code class="inline">kollisionen</code> die Liste <code class="inline">[1,3]</code> gespeichert, denn die Rechtecke and den Index-Positionen 1 und 3 der <code class="inline">rechteck_liste</code> sind diejenigen mit Überschneindungen.
       </li>
     </ul>
     <p>Es gibt noch ein paar weitere Befehle. Die Dokumentation dazu findest du auf <a href="https://www.pygame.org/docs/ref/rect.html" target="_blank"><code class="inline">rect</code></a>.</p>
+    <p>&nbsp;</p>
     <h1>Kollision mit Bild</h1>
     <p>Soll ein Bild mit einem anderen objekt kollidieren, so ist eine Möglichkeit dafür, das Bildelement in ein Rechteck umzuwandeln und dann dieses (anstatt des ursprünglichen Bildes) zu zeichnen. Damit kann man wieder die oben dokumentierten Methoden zum Prüfen von Rechteckskollisionen verwenden. Natürlich kann man nicht nur eines, sondern auch mehrere Bilder in Rechtecke umwandeln und so auf Kollisionen prüfen. (Beispiel Bild/Animation siehe )</p>
     <pre><code class="language-python">
@@ -57,8 +60,8 @@ auto_pos = pygame.draw.rect(FENSTER, "#FF00FF", auto)
 runner_rect = FENSTER.blit(runner, (500, 400), crop)
 # Prüft ob auto_pos mit runner_pos kollidiert - also ob diese sich überschneiden
 if runner_pos.colliderect(auto_pos):
-  # Reagiere auf die Kollision. Beispiel zeichnet einen Kreis auf das "Auto":
-  pygame.draw.circle(FENSTER, "#0000FF", (120, 550), 50)
+    # Reagiere auf die Kollision. Beispiel zeichnet einen Kreis auf das "Auto":
+    pygame.draw.circle(FENSTER, "#0000FF", (120, 550), 50)
     </code></pre>
   </article>
   <footer>&copy; 2024, Edoardo Beutler</footer>

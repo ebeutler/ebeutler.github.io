@@ -32,6 +32,17 @@
         <pre><code class="language-python">
 rotiert_45grad_rechts = pygame.transform.rotate(bild, -45)
         </code></pre>
+        Etwas komplizierter ist es nicht ein Bild, sondern z.B. ein Rechteck, ein Kreis oder eine Ellipse, zu drehen. Um das zu erreichen muss man die Form auf neue kleine Zeichenfläche zeichnen. Man kann sich das so vorstellen, wie wenn man beim Zeichnen auf Papier die Ellipse nicht direkt aufs Zeichenblatt zeichnet sondern auf ein Post-It und danach das Post-It dreht und in der gewünschten Drehung auf das eigentliche Blatt klebt. Mit pygame sieht das dann wie folgt aus, wenn man eine 160x80 Pixe grosse ellipse zeichen und um 45 Grad drehen will.
+        <pre><code class="language-python">
+# Zeichnen einer Ellipse auf eine transparente kleine Zeichenfläche
+zeichen_fläche = pygame.Surface((160, 80), pygame.SRCALPHA, 32).convert_alpha()
+ellipsen_fläche = pygame.Rect((0,0), (160, 80))
+pygame.draw.ellipse(zeichen_fläche, "#FFFFFF", ellipsen_fläche)
+
+# rotieren der Ellipse um 45° und Zeichnen der rotierten Ellipse
+rotierte_fläche = pygame.transform.rotate(ohr, -45)
+FENSTER.blit(rotierte_fläche, (300, 200))
+        </code></pre>
       </li>
       <li>
         <h2>Skalieren (verkleinern & vergrössern)</h2>
