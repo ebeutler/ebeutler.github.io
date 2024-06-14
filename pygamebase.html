@@ -42,7 +42,7 @@ FENSTER = pygame.display.set_mode((FENSTER_BREITE, FENSTER_HOEHE))
 pygame.display.set_caption("&lt;Titel einfügen&gt;")
     </code></pre>
     <p>Heutige Computer sind sehr schnell - aber nicht alle gleich schnell. Um zu verhindern, dass dein Programm auf schnellen Computern viel zu schnell abläuft, empfiehlt es sich zu beschränken wieviele Bilder dein Programm pro Sekunde maximal zeichnet. Wenn jemand einen sehr langsamen Computer hat - oder du für jedes neue Bild sehr viel Berechnen musst - kann das Programm trotzdem langsamer laufen, aber eben nicht schneller.<br />
-    Im folgenden Code habe ich eine Varialbe <code class="inline">FPS</code> auf 60 gesetzt. Die zweite Zeile begrenzt dann das Programm auf maximal diese 60 Bilder pro Sekunde. Nebenbei: FPS steht für "Frames per second".<br />
+    Im folgenden Code habe ich eine Varialbe <code class="inline">FPS</code> auf 60 gesetzt. Die zweite Zeile begrenzt dann das Programm auf maximal diese 60 Bilder pro Sekunde. Dies (zweite Zeile) muss in der Hauptschleife passieren, damit die Begrenzung funktioniert.. Nebenbei: FPS steht für "Frames per second".<br />
     Du solltest die Maximale Bildzahl nicht tiefer als 30 setzen, da sonst Bewegungen gut sichtbar zu ruckeln beginnen.</p>
     <pre><code class="language-python">
 FPS = 60
@@ -83,9 +83,8 @@ FENSTER = pygame.display.set_mode((FENSTER_BREITE, FENSTER_HOEHE))
 # Setzt den Titel des Fensters
 pygame.display.set_caption("<Titel einfügen>")
 
-# Limitiert die Anzahl maximal gezeichneten Bilder pro Sekunde
+# Gewünschte Anzahl Bilder pro Sekunde (Begrenzung nach oben)
 FPS = 60
-pygame.time.Clock().tick(FPS)
 
 # Unendlich laufende Hauptschleife (Läuft so lange wie das Programm).
 while True:
@@ -96,6 +95,9 @@ while True:
     
     # ... Hier kommt dein Code
     #FENSTER.fill("#FF00FF") # Füllt das Fenster in der gegebenen Farbe
+    
+    # Limitiert die Anzahl maximal gezeichneten Bilder pro Sekunde
+    pygame.time.Clock().tick(FPS)
     
     # Zeichnet das Fenster neu
     pygame.display.update()
