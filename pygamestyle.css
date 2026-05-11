@@ -129,11 +129,6 @@ li.nodec {
 li div {
   margin-left: 16px;
 }
-code {
-  display: block;
-  white-space: pre-wrap;
-  font-family: monospace, monospace;
-}
 
 @media (max-width:800px) {
   header {
