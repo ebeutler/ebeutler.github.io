@@ -131,7 +131,8 @@ li div {
 }
 code {
   display: block;
-  white-space: pre-wrap   
+  white-space: pre-wrap;
+  font-family: monospace, monospace;
 }
 
 @media (max-width:800px) {
