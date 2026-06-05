@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title>Texte | beu-PYGAME</title>
+  <link media="all" rel="stylesheet" href="pygamestyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body>
+  <header>
+	<div class="logo"></div>
+	<h1>pygame Dokumentation</h1>
+    <p class="back"><a href="pygame.html">&larr; Zurück zur Übersicht</a></p>
+	<div class="divider"></div>
+  </header>
+  <div class="band band1"></div>
+  <div class="band band2"></div>
+  <div class="band band3"></div>
+  <div class="band bandr"></div>
+  <article>
+    <h1>Gruppieren von zusammengehörigen Daten (Objektorientierte Programmierung)</h1>
+    <p>Hierbei handelt es sich um nichts das zu pygame gehört, sondern um eine ganz allgemein nüzliche Technik. Nämlich objektorientierte Programmierung. Dies soll aber keine detaillierte Einführung in objektorientierte Programmierung sein, sondern nur anhand eines Beispiels einen sehr kurzen Überblick verschaffen. Dieser sollte ausreichen damit du Objekte verwenden kannst, auch wenn du das nicht im Detail verstehst.</p>
+    <p>Das Beispiel: Spielkarten! Du hast ein Deck von Spielkarten und jede davon hat eine Farbe und einen Wert. Möglicherweise hat deine Karte noch weiteres das du gerne dazu speichern würdest. Wie kannst du das also in Python abbilden? Viele Variablen erstellen ist unschön und wird sehr unübersichtlich. Speicherst du das in einer Liste ist das zwar schöner, aber du hast dann immer noch mehrere Listen (eine für die Farbe, eine für die Katenwerte, ...). Ein Objekt kannst du dir als eine Art Container vorstellen: Du kannst Kartenfarbe und -wert hineinlegen und musst dir nur den Container merken (also eine Variable anstatt mehreren pro Karte). Genauso kannst du die Container in einer Liste speichern und hast so nur eine Liste in der alle Informationen zu allen Karten ist (z.B. alle Karten die ein Spieler in der Hand hält).</p>
+    <p>Im Beispiel hier soll jede Spielkarte eine Farbe (Herz, Pik, Karo oder Kreuz), einen Kartenwert (1-13) und eine weitere Information (einen Kartentext) haben. Das Deck könnte also eine Karte "Pik 7 mit Text 'Viel-Pik'" und eine Karte "Herz 2 mit Text 'Herz an Herz'" enthalten
+    <pre><code class="language-python">
+
+    </code></pre>
+    <p>&nbsp;</p>
+    <h1>Mehrzeiliger Text</h1>
+    <p>Pygame erlaubt es nicht, mehrzeiligen Text direkt auszugeben. Also muss du dir mit einem Umweg behelfen: Erstelle eine Liste mit allen Zeilen deines Textes und gib diese dann untereinander aus. Ein Beispiel dazu siehst du unten. Es werden drei Zeilen erstellt und danach mit einer while-Schleife alle drei Zeilen ausgegeben. Die Zählvariable z wird dabei verwendet um die y-Koordinate so anzupassen, dass die Zeilen untereinader ausgegeben werden.
+    </p>
+    <pre><code class="language-python">
+from enum import Enum
+
+class Spielkarte:
+    Farben = Enum('Farben', [('Herz', 1), ('Pik', 2), ('Karo', 3), ('Kreuz', 4)])
+    
+    def __init__(self, f, w, abc):
+        self.farbe = f
+        self.wert = w
+        self.xyz = abc
+Pik 7 mit Text 'Viel-Pik'" und eine Karte "Herz 2 mit Text 'Herz an Herz'
+
+karten = [ Spielkarte(Spielkarte.Farben.Pik, 2, "Doppel-Pik"), Spielkarte(Spielkarte.Farben.Pik, 2, "Herz an Herz")]
+if k.wert > 3:
+    print(k.farbe)
+else:
+    print(k.xyz)
+    </code></pre>
+  </article>
+  <footer>&copy; 2026, Edoardo Beutler</footer>
+</body>
+</html>
