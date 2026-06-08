@@ -38,8 +38,14 @@ class Spielkarte:
         self.wert = w
         self.text = t
     </code></pre>
-    <p>Damit ist die Vorlage für eine Spielkarte schon fast fertig programmiert. Als kleine Erweiterung kannst du Spielkartenfarben noch etwas schöner ablegen als einfach eine Zahl oder einen Text zu verwenden. Das geht mit einer Enum (kurz für Aufzählung - enumeration).</p>
+    <p>Damit ist die Vorlage für eine Spielkarte schon fast fertig programmiert. Als kleine Erweiterung kannst du Spielkartenfarben noch etwas schöner ablegen als einfach eine Zahl oder einen Text zu verwenden. Das geht mit einer Enum (kurz für Aufzählung - enumeration). Die Werte einer sochen Enum kann man ähnlich wie Variablen verwenden.</p>
     <pre><code class="language-python">
+from enum import Enum
+Farben = Enum('Farben', [('Herz', 1), ('Pik', 2), ('Karo', 3), ('Kreuz', 4)])
+    </code></pre>
+	<p>Dieser Codeausschnitt definiert ein Enum mit dem Namen "Farben" und den Werten "Herz", "Pik", "Karo" und "Kreuz" (die zusätzlich, als alternativwerte, auch noch durchnummeriert wurden). Damit kannst du dann im Code mit Farben.Herz darauf zugreifen und z.B. testen ob dies deiner Kartenfarbe entspricht.</p>
+	<p>Hier nochmal der komplette Code inklusive einem Beispiel: Es werden zwei Spielkarten angelegt, beide angeschaut und geprüft ob deren Wert grösser als drei ist. Falls das zutrifft wird etwas anderes ausgegeben als wenn nicht.</p>
+	<pre><code class="language-python">
 from enum import Enum
 
 Farben = Enum('Farben', [('Herz', 1), ('Pik', 2), ('Karo', 3), ('Kreuz', 4)])
