@@ -44,7 +44,7 @@ from enum import Enum
 Farben = Enum('Farben', [('Herz', 1), ('Pik', 2), ('Karo', 3), ('Kreuz', 4)])
     </code></pre>
 	<p>Dieser Codeausschnitt definiert ein Enum mit dem Namen "Farben" und den Werten "Herz", "Pik", "Karo" und "Kreuz" (die zusätzlich, als alternativwerte, auch noch durchnummeriert wurden). Damit kannst du dann im Code mit Farben.Herz darauf zugreifen und z.B. testen ob dies deiner Kartenfarbe entspricht.</p>
-	<p>Hier nochmal der komplette Code inklusive einem Beispiel: Es werden zwei Spielkarten angelegt, beide angeschaut und geprüft ob deren Wert grösser als drei ist. Falls das zutrifft wird etwas anderes ausgegeben als wenn nicht.</p>
+	<p>Hier nochmal der komplette Code inklusive einem Beispiel: Es werden zwei Spielkarten angelegt, beide angeschaut und geprüft, ob es sich um eine Herzkarte handelt. Falls ja, wird der Kartentext ausgegeben. Ansonsten Farbe und Wert der Karte.</p>
 	<pre><code class="language-python">
 from enum import Enum
 
@@ -58,7 +58,7 @@ class Spielkarte:
 
 karten = [ Spielkarte(Farben.Pik, 7, "Viel-Pik"), Spielkarte(Farben.Pik, 2, "Herz an Herz")]
 for k in karten:
-    if k.wert > 3:
+    if k.farbe != Farben.Herz:
         print(k.farbe, k.wert)
     else:
         print(k.text)
